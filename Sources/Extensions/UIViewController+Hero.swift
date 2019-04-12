@@ -33,7 +33,7 @@ internal class HeroViewControllerConfig: NSObject {
 }
 
 extension UIViewController: HeroCompatible { }
-public extension HeroExtension where Base: UIViewController {
+extension HeroExtension where Base: UIViewController {
 
   internal var config: HeroViewControllerConfig {
     get {
@@ -95,7 +95,7 @@ public extension HeroExtension where Base: UIViewController {
   }
 }
 
-public extension UIViewController {
+extension UIViewController {
   fileprivate struct AssociatedKeys {
     static var heroConfig = "heroConfig"
   }
@@ -141,7 +141,7 @@ public extension UIViewController {
   }
 }
 
-public extension HeroExtension where Base: UINavigationController {
+extension HeroExtension where Base: UINavigationController {
 
   /// default hero animation type for push and pop within the navigation controller
   public var navigationAnimationType: HeroDefaultAnimationType {
@@ -170,7 +170,7 @@ extension UINavigationController {
   }
 }
 
-public extension HeroExtension where Base: UITabBarController {
+extension HeroExtension where Base: UITabBarController {
 
   /// default hero animation type for switching tabs within the tab bar controller
   public var tabBarAnimationType: HeroDefaultAnimationType {
@@ -199,7 +199,7 @@ extension UITabBarController {
   }
 }
 
-public extension HeroExtension where Base: UIViewController {
+extension HeroExtension where Base: UIViewController {
 
   /**
    Dismiss the current view controller with animation. Will perform a navigationController.popViewController
@@ -242,7 +242,7 @@ public extension HeroExtension where Base: UIViewController {
    Unwind to a view controller that the matchBlock returns true on.
    */
   public func unwindToViewController(withMatchBlock: (UIViewController) -> Bool) {
-    var target: UIViewController? = nil
+    var target: UIViewController?
     var current: UIViewController? = base
 
     while target == nil && current != nil {
@@ -328,54 +328,5 @@ public extension HeroExtension where Base: UIViewController {
         }
       }
     }
-  }
-}
-
-extension UIViewController {
-  @available(*, deprecated: 0.1.4, message: "use hero.dismissViewController instead")
-  @IBAction public func ht_dismiss(_ sender: UIView) {
-    hero.dismissViewController()
-  }
-
-  @available(*, deprecated: 0.1.4, message: "use hero.replaceViewController(with:) instead")
-  public func heroReplaceViewController(with next: UIViewController) {
-    hero.replaceViewController(with: next)
-  }
-
-  // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.dismissViewController instead")
-  @IBAction public func hero_dismissViewController() {
-    hero.dismissViewController()
-  }
-
-  // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.unwindToRootViewController instead")
-  @IBAction public func hero_unwindToRootViewController() {
-    hero.unwindToRootViewController()
-  }
-
-  @available(*, deprecated, message: "Use hero.unwindToViewController(_:) instead")
-  public func hero_unwindToViewController(_ toViewController: UIViewController) {
-    hero.unwindToViewController(toViewController)
-  }
-
-  @available(*, deprecated, message: "Use hero.unwindToViewController(withSelector:) instead")
-  public func hero_unwindToViewController(withSelector: Selector) {
-    hero.unwindToViewController(withSelector: withSelector)
-  }
-
-  @available(*, deprecated, message: "Use hero_unwindToViewController(withClass:) instead")
-  public func hero_unwindToViewController(withClass: AnyClass) {
-    hero.unwindToViewController(withClass: withClass)
-  }
-
-  @available(*, deprecated, message: "Use hero.unwindToViewController(withMatchBlock:) instead")
-  public func hero_unwindToViewController(withMatchBlock: (UIViewController) -> Bool) {
-    hero.unwindToViewController(withMatchBlock: withMatchBlock)
-  }
-
-  @available(*, deprecated, message: "Use hero.replaceViewController(with:) instead")
-  public func hero_replaceViewController(with next: UIViewController) {
-    hero.replaceViewController(with: next)
   }
 }

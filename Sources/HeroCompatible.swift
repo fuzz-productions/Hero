@@ -28,7 +28,7 @@ public protocol HeroCompatible {
   var hero: HeroExtension<CompatibleType> { get set }
 }
 
-public extension HeroCompatible {
+extension HeroCompatible {
   public var hero: HeroExtension<Self> {
     get { return HeroExtension(self) }
     set { }

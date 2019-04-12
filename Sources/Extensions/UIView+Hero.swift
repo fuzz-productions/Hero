@@ -40,7 +40,7 @@ class SnapshotWrapperView: UIView {
 }
 
 extension UIView: HeroCompatible { }
-public extension HeroExtension where Base: UIView {
+extension HeroExtension where Base: UIView {
 
   /**
    **ID** is the identifier for the view. When doing a transition between two view controllers,
@@ -137,7 +137,7 @@ public extension UIView {
   }
 
   @available(*, deprecated, message: "Use hero.modifiers instead")
-  public var heroModifiers: [HeroModifier]? {
+  var heroModifiers: [HeroModifier]? {
     get { return hero.modifiers }
     set { hero.modifiers = newValue }
   }

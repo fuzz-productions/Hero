@@ -22,7 +22,7 @@
 
 import UIKit
 
-public extension CAMediaTimingFunction {
+extension CAMediaTimingFunction {
   // default
   public static let linear = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.linear.rawValue))
   public static let easeIn = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn.rawValue))

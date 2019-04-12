@@ -70,11 +70,11 @@ public enum CascadeDirection {
       return nil
     }
   }
-  
+
   public static var leadingToTrailing: CascadeDirection {
     return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .leftToRight : .rightToLeft
   }
-  
+
   public static var trailingToLeading: CascadeDirection {
     return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .rightToLeft : .leftToRight
   }

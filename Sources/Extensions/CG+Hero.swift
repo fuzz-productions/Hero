@@ -39,7 +39,7 @@ internal struct KeySet<Key: Hashable, Value: Hashable> {
   }
 }
 
-internal extension CGSize {
+extension CGSize {
   internal var center: CGPoint {
     return CGPoint(x: width / 2, y: height / 2)
   }
@@ -54,7 +54,7 @@ internal extension CGSize {
   }
 }
 
-internal extension CGRect {
+extension CGRect {
   internal var center: CGPoint {
     return CGPoint(x: origin.x + width / 2, y: origin.y + height / 2)
   }

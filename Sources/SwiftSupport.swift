@@ -48,9 +48,6 @@ extension RunLoop {
 }
 #endif
 
-
-
-
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromCAMediaTimingFillMode(_ input: CAMediaTimingFillMode) -> String {
 	return input.rawValue
